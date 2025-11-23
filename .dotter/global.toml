@@ -4,6 +4,17 @@
 depends = []
 
 [default.files]
+dunst = "~/.config/dunst"
+hypr = "~/.config/hypr"
+i3 = "~/.config/i3"
+i3blocks = "~/.config/i3blocks"
+i3status = "~/.config/i3status"
+kanshi = "~/.config/kanshi"
+nvim = "~/.config/nvim"
+rofi = "~/.config/rofi"
+waybar = "~/.config/waybar"
+
+
 
 [default.variables]
 
