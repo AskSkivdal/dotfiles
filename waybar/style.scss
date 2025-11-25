@@ -1,0 +1,127 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: '0xProto Nerd Font', 'Times New Roman';
+    font-size: 16px;
+}
+
+$pane-color: #333333;
+$highlight-color: #7D5BA6;
+$text-color: rgba(255,255,255, 0.75);
+$roundness: 12px;
+$y-margin: 6px;
+$x-margin: 6px;
+
+@mixin pill {
+    background-color: $pane-color;
+    border-radius: $roundness;
+    margin: $y-margin $x-margin;
+    padding: 0px 8px;
+}
+
+@mixin hide {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: $text-color;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    @include pill;
+    padding: 0 0;
+}
+
+#workspaces button:first-child {
+    border-radius: $roundness 0 0 $roundness;
+
+}
+
+#workspaces button:last-child {
+    border-radius: 0 $roundness $roundness 0;
+}
+
+#workspaces button:only-child {
+    border-radius: $roundness;
+}
+
+#workspaces button {
+    padding: 2px 6px;
+    transition-property: background-color;
+    border-radius: 0;
+}
+
+
+#workspaces button.active {
+    background-color: $highlight-color;
+}
+
+#workspaces button.hover {
+    background-color: blue;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd, 
+#custom-playerctl,
+#custom-rofi,
+#submap {
+    @include pill;
+}
+
+
+
+
+
+
+
+
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+
+#custom-playerctl.Paused {
+    @include hide
+}

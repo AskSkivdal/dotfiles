@@ -12,7 +12,7 @@ i3status = "~/.config/i3status"
 kanshi = "~/.config/kanshi"
 nvim = "~/.config/nvim"
 rofi = "~/.config/rofi"
-waybar = "~/.config/waybar"
+waybar = {target = "~/.config/waybar", type = "symbolic"}
 
 
 

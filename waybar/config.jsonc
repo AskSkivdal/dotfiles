@@ -1,19 +1,15 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    //"position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "top",
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad",
-        "custom/media"
+        "hyprland/submap",
+        "custom/playerctl"
     ],
     "modules-center": [
-        "custom/playerctl"
+        "clock"
     ],
     "modules-right": [
         "mpd",
@@ -25,16 +21,10 @@
         "sway/language",
         "battery",
         "battery#bat2",
-        "clock",
         "tray"
     ],
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        "spacing": 16
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -42,18 +32,18 @@
         "format": "{:%Y-%m-%d %H:%M}"
     },
     "cpu": {
-        "format": "CPU: {usage}%",
+        "format": "\uf4bc  {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "MEM: {used}/{total}"
+        "format": "\uefc5  {used}/{total}gb"
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "TEMP: {temperatureC}°C"
+        "format": "\uf2c9 {temperatureC}°C"
     },
     "battery": {
         "states": {
@@ -61,9 +51,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "BAT: {capacity}%",
-        "format-full": "BAT: Full",
-        "format-charging": "BAT: {capacity}% (charging)",
+        "format": "\udb80\udd0c {capacity}%",
+        "format-full": "\udb80\udd0c Full",
+        "format-charging": "\udb80\udd0c {capacity}% (charging)",
         "format-alt": "{time}"
     },
     "battery#bat2": {
@@ -71,15 +61,20 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "NET: {essid} ({signalStrength}%)",
-        "format-ethernet": "NET: {ipaddr}",
+        "format-wifi": "\udb81\udda9 {essid} ({signalStrength}%)",
+        "format-ethernet": "\udb80\ude00 {ipaddr}",
         "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "NET: {ifname} (No IP)",
-        "format-disconnected": "NET: Disconnected"
+        "format-linked": "\udb81\udef3 {ifname} (No IP)",
+        "format-disconnected": "\udb81\udef3 Disconnected"
     },
     "custom/playerctl": {
-        "exec": "playerctl -a metadata --format '{\"text\": \"\{{markup_escape(title)}} - \{{markup_escape(artist)}}\", \"alt\": \"\{{status}}\", \"class\": \"\{{status}}\"}' -F",
-        "format": "{}",
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "format": "\udb81\udf5a {}",
         "return-type": "json"
+    },
+
+    "custom/rofi": {
+        "format": "Apps",
+        "on-click": "rofi -show drun run ssh"
     }
 }
