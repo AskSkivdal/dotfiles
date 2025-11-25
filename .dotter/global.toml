@@ -13,7 +13,7 @@ kanshi = "~/.config/kanshi"
 nvim = "~/.config/nvim"
 rofi = "~/.config/rofi"
 waybar = {target = "~/.config/waybar", type = "symbolic"}
-
+wallpapers = {target = "~/Pictures/Wallpapers", type = "symbolic"}
 
 
 [default.variables]
