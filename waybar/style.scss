@@ -33,6 +33,10 @@ window#waybar {
     transition-duration: .5s;
 }
 
+window#waybar.fullscreen  {
+    @include hide;
+}
+
 
 window#waybar.hidden {
     opacity: 0.2;
