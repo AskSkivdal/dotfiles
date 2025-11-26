@@ -16,6 +16,7 @@ waybar = {target = "~/.config/waybar", type = "symbolic"}
 wallpapers = {target = "~/Pictures/Wallpapers", type = "symbolic"}
 kitty = "~/.config/kitty"
 "starship.toml" = "~/.config/starship.toml"
+eww = {target = "~/.config/eww", type = "symbolic"}
 
 [default.variables]
 
