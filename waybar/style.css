@@ -27,6 +27,7 @@ window#waybar.hidden {
   background-color: #333333;
   border-radius: 12px;
   margin: 6px 6px;
+  margin-bottom: 0;
   padding: 0px 8px;
   padding: 0 0;
 }
@@ -84,6 +85,7 @@ window#waybar.hidden {
   background-color: #333333;
   border-radius: 12px;
   margin: 6px 6px;
+  margin-bottom: 0;
   padding: 0px 8px;
 }
 
