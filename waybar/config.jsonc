@@ -19,14 +19,20 @@
         "network",
         "cpu",
         "memory",
+        "disk",
         "temperature",
         "sway/language",
         "battery",
         "battery#bat2",
-        "tray"
+        "tray",
     ],
     "tray": {
         "spacing": 16
+    },
+    "disk": {
+	    "interval": 30,
+	    "format": "\uf0a0 {specific_free:0.0f} GiB free on {path}",
+        "unit": "GiB"
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -34,11 +40,11 @@
         "format": "{:%Y-%m-%d %H:%M}"
     },
     "cpu": {
-        "format": "\uf4bc  {usage}%",
+        "format": "\uf4bc {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "\uefc5  {used}/{total}gb"
+        "format": "\uefc5 {used}/{total}gb"
     },
     "temperature": {
         // "thermal-zone": 2,
