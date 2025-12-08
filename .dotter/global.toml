@@ -17,6 +17,7 @@ wallpapers = {target = "~/Pictures/Wallpapers", type = "symbolic"}
 kitty = "~/.config/kitty"
 "starship.toml" = "~/.config/starship.toml"
 eww = {target = "~/.config/eww", type = "symbolic"}
+quickshell = {target = "~/.config/quickshell", type = "symbolic"}
 
 [default.variables]
 
