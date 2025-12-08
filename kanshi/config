@@ -31,11 +31,6 @@ profile "Loq and Display" {
     
 }
 
-profile "Loq and The frame" {
-    output eDP-1 mode 1920x1080 position 0,0
-    output HDMI-A-5 mode 3840x2160@60.0 position 0,1080 scale 2
-}
-
 profile "Loq and work-monitor" {
     output HDMI-A-5 mode 3840x1200@99.96Hz position 0,0
     output eDP-1 mode 1920x1080 position 960,1200
