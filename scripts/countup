@@ -1,0 +1,13 @@
+#!/usr/bin/env rust-script
+use std::env;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let from = &args[1].parse::<i32>().unwrap();
+    let to = &args[2].parse::<i32>().unwrap();
+
+    for i in *from..=*to {
+        println!("{i}")
+    }
+}

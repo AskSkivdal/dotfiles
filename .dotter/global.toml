@@ -18,7 +18,7 @@ kitty = "~/.config/kitty"
 "starship.toml" = "~/.config/starship.toml"
 eww = {target = "~/.config/eww", type = "symbolic"}
 quickshell = {target = "~/.config/quickshell", type = "symbolic"}
-
+scripts = {target = "~/.local/bin/scripts", type = "symbolic"}
 [default.variables]
 
 [settings]
