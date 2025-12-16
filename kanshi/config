@@ -37,7 +37,7 @@ profile "Loq and work-monitor" {
 }
 
 profile "Loq and work-monitor and viewfinity" {
-    output HDMI-A-5 mode 3840x1200@99.96Hz position 0,0
+    output HDMI-A-5 mode 3840x1200 position 0,0
     output eDP-1 mode 1920x1080 position 960,1200
     output DP-3 mode 3440x1440 position 3840,0
 }
