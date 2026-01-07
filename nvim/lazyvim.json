@@ -1,6 +1,9 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.lang.tailwind",
+    "lazyvim.plugins.extras.ui.mini-starter",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lang.json"
   ],
   "install_version": 8,
   "news": {
