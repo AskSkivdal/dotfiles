@@ -1,99 +1,98 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    //"position": "bottom", // Waybar position (top|bottom|left|right)
-    "position": "top",
-    "ipc": true,
-    "hide-on-fullscreen": true,
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap",
-        "custom/playerctl"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "mpd",
-        "power-profiles-daemon",
-        "network",
-        "cpu",
-        "memory",
-        "disk",
-        "temperature",
-        "sway/language",
-        "battery",
-        "battery#bat2",
-        "tray"
-    ],
-    "tray": {
-        "spacing": 16
+  // "layer": "top", // Waybar at top layer
+  //"position": "bottom", // Waybar position (top|bottom|left|right)
+  "position": "top",
+  "ipc": true,
+  "hide-on-fullscreen": true,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "custom/playerctl"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "mpd",
+    "power-profiles-daemon",
+    "network",
+    "cpu",
+    "memory",
+    "disk",
+    "temperature",
+    "sway/language",
+    "battery",
+    "battery#bat2",
+    "tray"
+  ],
+  "tray": {
+    "spacing": 16
+  },
+  "disk": {
+    "interval": 30,
+    "format": "\uf0a0 {specific_free:0.0f} GiB free on {path}",
+    "unit": "GiB"
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%Y %B}</big>",
+    "format": "{:%Y-%m-%d %H:%M}"
+  },
+  "cpu": {
+    "format": "\uf4bc {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "\uefc5 {used}/{total}gb"
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "\uf2c9 {temperatureC}°C"
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "disk": {
-	    "interval": 30,
-	    "format": "\uf0a0 {specific_free:0.0f} GiB free on {path}",
-        "unit": "GiB"
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>",
-        "format": "{:%Y-%m-%d %H:%M}"
-    },
-    "cpu": {
-        "format": "\uf4bc {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "\uefc5 {used}/{total}gb"
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "\uf2c9 {temperatureC}°C"
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "\udb80\udd0c {capacity}%",
-        "format-full": "\udb80\udd0c Full",
-        "format-charging": "\udb80\udd0c {capacity}% (charging)",
-        "format-alt": "{time}"
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "\udb81\udda9 {essid} ({signalStrength}%)",
-        "format-ethernet": "\udb80\ude00 {ipaddr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "\udb81\udef3 {ifname} (No IP)",
-        "format-disconnected": "\udb81\udef3 Disconnected"
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "D",
-            "performance": "",
-            "balanced": " ",
-            "power-saver": " "
-        }
-    },
-    "custom/playerctl": {
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "format": "\udb81\udf5a {}",
-        "return-type": "json"
-    },
-
-    "custom/rofi": {
-        "format": "Apps",
-        "on-click": "rofi -show drun run ssh"
+    "format": "\udb80\udd0c {capacity}% ({time})",
+    "format-full": "\udb80\udd0c Full",
+    "format-charging": "\udb80\udd0c {capacity}% (charging: {time})",
+    "format-alt": "{time}"
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "\udb81\udda9 {essid} ({signalStrength}%)",
+    "format-ethernet": "\udb80\ude00 {ipaddr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "\udb81\udef3 {ifname} (No IP)",
+    "format-disconnected": "\udb81\udef3 Disconnected"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "D",
+      "performance": "",
+      "balanced": " ",
+      "power-saver": " "
     }
+  },
+  "custom/playerctl": {
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "format": "\udb81\udf5a {}",
+    "return-type": "json"
+  },
+  "custom/rofi": {
+    "format": "Apps",
+    "on-click": "rofi -show drun run ssh"
+  }
 }
