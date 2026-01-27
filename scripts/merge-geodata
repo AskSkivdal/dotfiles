@@ -1,0 +1,53 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "geopandas",
+#     "pandas",
+#     "tqdm"
+# ]
+# ///
+
+import geopandas as gpd
+import pandas as pd
+import argparse
+from tqdm import tqdm
+
+def main():
+    parser = argparse.ArgumentParser(prog='Merge geodata')
+    parser.add_argument("input", nargs="+")
+    parser.add_argument("-o", "--output", required=True)
+    parser.add_argument("-l", "--layer")
+
+    args = parser.parse_args()
+    input_file: str = args.input
+    output_file: str = args.output
+    layer: str | None = args.layer
+
+    gdfs: list[gpd.GeoDataFrame] = []
+    crs = None
+
+    for f in tqdm(input_file, desc="Loading files"):
+        gdf: gpd.GeoDataFrame = gpd.read_file(f, layer=layer) # type: ignore
+        df_crs = gdf.crs
+        if df_crs == None:
+            print(f"{f} is missing crs")
+        elif crs == None:
+            crs = df_crs
+        elif crs != df_crs:
+            print(f"Crs mismatch in {f}, casting to {crs}")
+            gdf.to_crs(crs, inplace=True)
+
+        gdfs.append(gdf)
+
+    print(f"Merging {len(gdfs)} datasets together")
+    df = pd.concat(gdfs)
+
+    gdf = gpd.GeoDataFrame(df, crs=crs)
+
+    print(f"Writing to {output_file}")
+    gdf.to_file(output_file, layer=layer) # type: ignore
+
+
+if __name__ == "__main__":
+    main()
