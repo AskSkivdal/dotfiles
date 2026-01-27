@@ -20,7 +20,7 @@ def main():
     parser.add_argument("-l", "--layer")
 
     args = parser.parse_args()
-    input_file: str = args.input
+    input_file: list[str] = args.input
     output_file: str = args.output
     layer: str | None = args.layer
 
