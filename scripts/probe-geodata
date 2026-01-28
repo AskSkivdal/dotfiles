@@ -13,31 +13,53 @@ GEO_URL_ENDPOINT = "https://geo-url.com/"
 
 def main():
     parser = argparse.ArgumentParser(prog='Merge geodata')
-    parser.add_argument("input")
+    parser.add_argument("input", nargs="+")
     parser.add_argument("-l", "--layer")
 
     args = parser.parse_args()
-    input_file: str = args.input
+    input_files: list[str] = args.input
     layer: str | None = args.layer
 
-    gdf: gpd.GeoDataFrame = gpd.read_file(input_file, layer=layer) # type: ignore
-    gdf_layers = list(gpd.list_layers(input_file).name)
-    print(f" LAYERS: {gdf_layers}")
-    print(f"    CRS: {gdf.crs}")
-    print(f"  SHAPE: {gdf.shape}")
-    print(f" BOUNDS: {tuple(map(lambda x: float(x), list(gdf.total_bounds)))}")
-    bounds_wgs84 = [round(i, 4) for i in list(gdf.to_crs("EPSG:4326").total_bounds)]
+    for input_file in input_files:
+        gdf: gpd.GeoDataFrame = gpd.read_file(input_file, layer=layer) # type: ignore
+        gdf_layers = list(gpd.list_layers(input_file).name)
 
-    geo_url = GEO_URL_ENDPOINT + f"BBOX(WKT(LINESTRING({bounds_wgs84[0]} {bounds_wgs84[1]}, {bounds_wgs84[2]} {bounds_wgs84[3]})))"
-    geo_url = geo_url.replace(" ", "%20")
+        z_axis_check = gdf.geometry.has_z.value_counts().to_dict()
+        if not False in z_axis_check.keys():
+            z_axis_check[False] = 0
+        if not True in z_axis_check.keys():
+            z_axis_check[True] = 0
 
-    print(f" BOUNDS: {tuple(map(lambda x: float(x), bounds_wgs84))}")
-    print(f"    URL: {geo_url}")
-    print(f"COLUMNS:")
-    cols = list(gdf.columns)
-    for col in cols:
-        datatype = gdf[col].dtype
-        print(f"        {col} - {datatype}")
+        print(f"    FILE: {input_file}")
+        print(f"  LAYERS: {gdf_layers}")
+        print(f"     CRS: {gdf.crs}")
+        print(f"   SHAPE: {gdf.shape}")
+        print(f"  Z-AXIS: {z_axis_check[True]} with, {z_axis_check[False]} without")
+        if z_axis_check[True] != 0:
+            geoms_with_z = gdf.has_z
+            coords = gdf[geoms_with_z].geometry.get_coordinates(include_z=True,include_m=False)
+            z_height = coords.groupby(level=0)["z"].mean()
+            lower = z_height.min()
+            upper = z_height.max()
+            mean = z_height.mean()
+            median = z_height.median()
+
+            print(f"Z-BOUNDS: min:{lower} max:{upper} mean:{mean} median:{median}")
+        print(f"  BOUNDS: {tuple(map(lambda x: float(x), list(gdf.total_bounds)))}")
+        bounds_wgs84 = [round(i, 4) for i in list(gdf.to_crs("EPSG:4326").total_bounds)]
+
+        geo_url = GEO_URL_ENDPOINT + f"BBOX(WKT(LINESTRING({bounds_wgs84[0]} {bounds_wgs84[1]}, {bounds_wgs84[2]} {bounds_wgs84[3]})))"
+        geo_url = geo_url.replace(" ", "%20")
+
+        print(f"  BOUNDS: {tuple(map(lambda x: float(x), bounds_wgs84))}")
+        print(f"     URL: {geo_url}")
+        print(f" COLUMNS:")
+        cols = list(gdf.columns)
+        for col in cols:
+            datatype = gdf[col].dtype
+            print(f"         {col} - {datatype}")
+
+        print("")
 
 
 
