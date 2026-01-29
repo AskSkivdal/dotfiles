@@ -46,13 +46,14 @@ def main():
 
             print(f"Z-BOUNDS: min:{lower} max:{upper} mean:{mean} median:{median}")
         print(f"  BOUNDS: {tuple(map(lambda x: float(x), list(gdf.total_bounds)))}")
-        bounds_wgs84 = [round(i, 4) for i in list(gdf.to_crs("EPSG:4326").total_bounds)]
-
-        geo_url = GEO_URL_ENDPOINT + f"BBOX(WKT(LINESTRING({bounds_wgs84[0]} {bounds_wgs84[1]}, {bounds_wgs84[2]} {bounds_wgs84[3]})))"
-        geo_url = geo_url.replace(" ", "%20")
-
-        print(f"  BOUNDS: {tuple(map(lambda x: float(x), bounds_wgs84))}")
-        print(f"     URL: {geo_url}")
+        if gdf.crs != None:
+            bounds_wgs84 = [round(i, 4) for i in list(gdf.to_crs("EPSG:4326").total_bounds)]
+    
+            geo_url = GEO_URL_ENDPOINT + f"BBOX(WKT(LINESTRING({bounds_wgs84[0]} {bounds_wgs84[1]}, {bounds_wgs84[2]} {bounds_wgs84[3]})))"
+            geo_url = geo_url.replace(" ", "%20")
+    
+            print(f"  BOUNDS: {tuple(map(lambda x: float(x), bounds_wgs84))}")
+            print(f"     URL: {geo_url}")
         print(f" COLUMNS:")
         cols = list(gdf.columns)
         for col in cols:
