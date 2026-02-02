@@ -103,6 +103,11 @@ window#waybar.hidden {
 }
 
 window#waybar.HDMI-A-1 #custom-playerctl,
+window#waybar.HDMI-A-1 #disk,
+window#waybar.HDMI-A-1 #memory,
+window#waybar.HDMI-A-1 #cpu,
+window#waybar.HDMI-A-1 #temperature,
+window#waybar.HDMI-A-1 #network,
 #custom-playerctl.Paused {
   opacity: 0;
   min-width: 0;
