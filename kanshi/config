@@ -5,6 +5,7 @@ profile "Desktop All displays" {
     # Layout definition
     output DP-2 mode 3440x1440@174.962 position 0,0
     output HDMI-A-2 mode 1920x1080 position -1920,0
+    output HDMI-A-1 mode 2560x1440 position 3440,0 transform 270
 
     # Move workspace to correct dp
     exec hyprctl dispatch moveworkspacetomonitor 1 DP-2
