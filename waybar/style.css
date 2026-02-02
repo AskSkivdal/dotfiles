@@ -4,6 +4,9 @@
   font-size: 16px;
 }
 
+
+
+
 window#waybar {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.75);
@@ -54,9 +57,6 @@ window#waybar.hidden {
   background-color: #7D5BA6;
 }
 
-#workspaces button.hover {
-  background-color: blue;
-}
 
 #workspaces button.urgent {
   background-color: #eb4d4b;
@@ -102,6 +102,7 @@ window#waybar.hidden {
   background-color: #eb4d4b;
 }
 
+window#waybar.HDMI-A-1 #custom-playerctl,
 #custom-playerctl.Paused {
   opacity: 0;
   min-width: 0;
