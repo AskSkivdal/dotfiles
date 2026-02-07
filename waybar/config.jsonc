@@ -16,12 +16,10 @@
   "modules-right": [
     "mpd",
     "power-profiles-daemon",
-    "network",
     "cpu",
     "memory",
     "disk",
     "temperature",
-    "sway/language",
     "battery",
     "battery#bat2",
     "tray"
@@ -31,8 +29,8 @@
   },
   "disk": {
     "interval": 30,
-    "format": "\uf0a0 {specific_free:0.0f} GiB free on {path}",
-    "unit": "GiB"
+    "format": "\uf0a0 {specific_free:0.1f}G",
+    "unit": "GB"
   },
   "clock": {
     // "timezone": "America/New_York",
@@ -44,7 +42,7 @@
     "tooltip": false
   },
   "memory": {
-    "format": "\uefc5 {used}/{total}gb"
+    "format": "\uefc5 {avail:0.1f}G"
   },
   "temperature": {
     // "thermal-zone": 2,

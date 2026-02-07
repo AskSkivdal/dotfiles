@@ -8,8 +8,9 @@
 
 
 window#waybar {
-  background-color: transparent;
   color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(55, 55, 55, 0.3);
+  padding: 8px 0;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -27,34 +28,22 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  background-color: #333333;
   border-radius: 12px;
-  margin: 6px 6px;
   margin-bottom: 0;
   padding: 0px 8px;
   padding: 0 0;
 }
-
-#workspaces button:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-#workspaces button:last-child {
-  border-radius: 0 12px 12px 0;
-}
-
-#workspaces button:only-child {
-  border-radius: 12px;
-}
-
 #workspaces button {
   padding: 2px 6px;
-  transition-property: background-color;
+  transition-duration: 0.25s;
+  transition-property: color;
+  color: rgba(255, 255, 255, 0.40);
   border-radius: 0;
 }
 
+
 #workspaces button.active {
-  background-color: #7D5BA6;
+  color: white;
 }
 
 
@@ -82,9 +71,8 @@ window#waybar.hidden {
 #custom-playerctl,
 #custom-rofi,
 #submap {
-  background-color: #333333;
   border-radius: 12px;
-  margin: 6px 6px;
+  margin: 0 3px;
   margin-bottom: 0;
   padding: 0px 8px;
 }
@@ -102,12 +90,6 @@ window#waybar.hidden {
   background-color: #eb4d4b;
 }
 
-window#waybar.HDMI-A-1 #custom-playerctl,
-window#waybar.HDMI-A-1 #disk,
-window#waybar.HDMI-A-1 #memory,
-window#waybar.HDMI-A-1 #cpu,
-window#waybar.HDMI-A-1 #temperature,
-window#waybar.HDMI-A-1 #network,
 #custom-playerctl.Paused {
   opacity: 0;
   min-width: 0;
