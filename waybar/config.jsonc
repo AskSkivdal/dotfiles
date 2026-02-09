@@ -35,7 +35,8 @@
   "clock": {
     // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>",
-    "format": "{:%Y-%m-%d %H:%M}"
+    "format": "{:%Y-%m-%d %H:%M}",
+    "on-click": "date +%F | sed 's/\n//g' | wl-copy && notify-send \"Copied date\""
   },
   "cpu": {
     "format": "\uf4bc {usage}%",
