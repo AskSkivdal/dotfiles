@@ -1,4 +1,4 @@
 [time]
-disabled=false
+disabled=true
 format='$time '
 time_format='%H:%M'
