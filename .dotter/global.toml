@@ -19,6 +19,8 @@ kitty = "~/.config/kitty"
 eww = {target = "~/.config/eww", type = "symbolic"}
 quickshell = {target = "~/.config/quickshell", type = "symbolic"}
 scripts = {target = "~/.local/bin/scripts", type = "symbolic"}
+pnpm = "~/.config/pnpm"
+
 [default.variables]
 
 [settings]
