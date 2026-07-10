@@ -22,6 +22,7 @@ scripts = {target = "~/.local/bin/scripts", type = "symbolic"}
 pnpm = "~/.config/pnpm"
 
 [default.variables]
+BATTERY = "DISABLED"
 
 [settings]
 default_target_type = "automatic"
