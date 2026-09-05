@@ -5,7 +5,8 @@ depends = []
 
 [default.files]
 dunst = "~/.config/dunst"
-hypr = "~/.config/hypr"
+hypr = {target="~/.config/hypr", type="symbolic"}
+"hypr/_hyprland_templates/variables.lua" = {target="hypr/hyprland/variables.lua", type="template"}
 i3 = "~/.config/i3"
 i3blocks = "~/.config/i3blocks"
 i3status = "~/.config/i3status"

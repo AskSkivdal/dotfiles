@@ -1,0 +1,11 @@
+require("hyprland.variables")
+
+hl.on("hyprland.start", function() 
+    hl.exec_cmd("nm-applet")
+    hl.exec_cmd("dunst")
+    hl.exec_cmd("kanshi")
+    hl.exec_cmd("playerctld")
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("lock-guard --poll-rate 0.5 -l hyprlock,swaylock --delay 5 --battery "..battery)
+end)
