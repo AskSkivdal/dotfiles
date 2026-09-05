@@ -26,8 +26,8 @@ hl.bind("SUPER + L", hl.dsp.exec_raw("hyprlock"))
 
 
 -- Window actions
-hl.bind("SUPER + Q", hl.dsp.window.close())
-hl.bind("SUPER + SHIFT + Q", hl.dsp.window.kill())
+hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
+hl.bind("SUPER + CONTROL + SHIFT + Q", hl.dsp.window.kill())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({
     action = "toggle"
 }))
