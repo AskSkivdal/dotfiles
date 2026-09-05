@@ -22,6 +22,8 @@ quickshell = {target = "~/.config/quickshell", type = "symbolic"}
 scripts = {target = "~/.local/bin/scripts", type = "symbolic"}
 pnpm = "~/.config/pnpm"
 
+"bashrc_extention.sh" = {target="~/.config/bashrc_extention.sh", type= "symbolic"}
+
 [default.variables]
 BATTERY = "DISABLED"
 
