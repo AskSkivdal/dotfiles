@@ -5,6 +5,11 @@ require("hyprland.keyboard")
 require("hyprland.styling")
 require("hyprland.animations")
 
+hl.monitor({
+    scale = 1,
+    output = ""
+})
+
 hl.config({
     misc = {
 
