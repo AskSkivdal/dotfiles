@@ -48,5 +48,5 @@ profile "Loq and work-monitor and asus travel" {
 #######################
 profile "Work desktop" {
     output "Samsung Electric Company C43J89x H4ZMC01390" mode 3840x1200@99.96 position 0,0
-    output "Hewlett Packard HP E271i 3CM741054G" mode 1920x1080@60 position 3840,0 transform 90
+    output "Samsung Electric Company LS32D80xU HK2L600207" mode 3840x2160@60 position 3840,0 transform 270 scale 1.5
 }
