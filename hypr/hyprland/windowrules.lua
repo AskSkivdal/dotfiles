@@ -3,7 +3,7 @@
 hl.window_rule({
     name = "Supress maximize",
     match = {
-        class = "*",
+        class = ".*",
     },
     suppress_event = "maximize"
 })
