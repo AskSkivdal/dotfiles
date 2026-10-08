@@ -1,8 +1,8 @@
 alias cat=bat
-alias ls="eza --icons"
-alias la="eza -a --icons"
+alias ls="eza --icons auto"
+alias la="eza -a --icons auto"
 alias lr="eza -T"
-alias ll="eza -l -b --no-permissions --git --icons"
+alias ll="eza -l -b --no-permissions --git --icons auto"
 alias py=python3
 alias httpyac="docker run -it -v ${PWD}:/data ghcr.io/anweber/httpyac:latest"
 alias flatpaks='echo "flatpak install flathub $(flatpak list --app --columns=application -a | tail -n +1 | tr "\n" " ")"'
