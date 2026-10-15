@@ -10,6 +10,8 @@ hl.monitor({
     output = ""
 })
 
+hl.env("XCURSOR_SIZE", 24)
+
 hl.config({
     misc = {
 
