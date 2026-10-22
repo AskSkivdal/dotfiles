@@ -9,6 +9,8 @@ alias flatpaks='echo "flatpak install flathub $(flatpak list --app --columns=app
 
 alias repl='uv run --with numpy --with pandas --with geopandas python -i .local/bin/scripts/repl_prelude.py'
 
+alias full_gdal="docker run -v ./:/workspace/ -w /workspace --user $(id -u):$(id -u) --rm ghcr.io/osgeo/gdal:ubuntu-full-latest"
+
 alias copy='xsel -ib'
 
 mark-danger() {
