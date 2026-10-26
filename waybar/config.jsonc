@@ -11,8 +11,8 @@
     "custom/playerctl"
   ],
   "modules-center": [
-    "clock",
-    "custom/herdr"
+    "custom/herdr",
+    "clock"
   ],
   "modules-right": [
     "mpd",
@@ -92,7 +92,7 @@
     "return-type": "json"
   },
   "custom/herdr": {
-    "exec": "herdr agent list | jq '[.result.agents[] | select(.agent_status==\"blocked\")] | length | select(. != 0)'",
+    "exec": "~/.local/bin/herdr agent list | jq '[.result.agents[] | select(.agent_status==\"blocked\")] | length | select(. != 0)'",
     "interval": 5,
     "format": "{text} blocked agents"
   },
