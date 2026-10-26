@@ -11,7 +11,8 @@
     "custom/playerctl"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "custom/herdr"
   ],
   "modules-right": [
     "mpd",
@@ -89,6 +90,11 @@
     "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "format": "\udb81\udf5a {}",
     "return-type": "json"
+  },
+  "custom/herdr": {
+    "exec": "herdr agent list | jq '[.result.agents[] | select(.agent_status==\"blocked\")] | length | select(. != 0)'",
+    "interval": 5,
+    "format": "{text} blocked agents"
   },
   "custom/rofi": {
     "format": "Apps",
