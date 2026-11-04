@@ -4,3 +4,4 @@ packages = ["default"]
 [files]
 
 [variables]
+BATTERY = "DISABLED"

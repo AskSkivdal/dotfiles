@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "nvim-lspconfig": {
+      "rev": "adfbb74472f6c231b651b650a89f414c2680fb31",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-tree.lua": {
+      "rev": "f632f208c52e942af1db6d3793ccdd4752dd28ac",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    }
+  }
+}
