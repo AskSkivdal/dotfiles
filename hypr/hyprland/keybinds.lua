@@ -18,6 +18,9 @@ hl.bind("SUPER + SHIFT + W", hl.dsp.exec_raw("killall waybar || waybar"))
 hl.bind("CONTROL + ALT + DELETE", hl.dsp.exit())
 hl.bind("PRINT", hl.dsp.exec_raw("bash ~/.config/hypr/scripts/grimblast copysave area"))
 
+-- Toggle touchpad
+hl.bind("XF86TouchpadToggle", hl.dsp.exec_raw("bash ~/.config/hypr/scripts/toggle_touchpad_asus.sh"))
+
 
 -- Locks
 hl.bind("SUPER + SHIFT + L", hl.dsp.exec_raw('swaylock -c "000000"'))
